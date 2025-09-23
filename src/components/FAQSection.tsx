@@ -38,20 +38,20 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-16 lg:py-24 bg-background">
       <div className="container-width section-padding">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold text-luxury mb-6">
+        <div className="text-center mb-12 lg:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-luxury mb-4 lg:mb-6">
             Executive FAQ
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
             Get answers to the most common questions from high-achieving professionals
           </p>
         </div>
 
         {/* FAQ Grid */}
-        <div className="max-w-4xl mx-auto space-y-4">
+        <div className="max-w-4xl mx-auto space-y-3 lg:space-y-4">
           {faqs.map((faq, index) => {
             const IconComponent = faq.icon;
             const isActive = activeIndex === index;
@@ -64,24 +64,24 @@ const FAQSection = () => {
               >
                 <button
                   onClick={() => setActiveIndex(isActive ? null : index)}
-                  className="w-full flex items-center justify-between text-left"
+                  className="w-full flex items-center justify-between text-left p-1"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="luxury-gradient w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-6 h-6 text-white" />
+                  <div className="flex items-center gap-3 lg:gap-4 min-w-0 flex-1">
+                    <div className="luxury-gradient w-10 h-10 lg:w-12 lg:h-12 rounded-lg lg:rounded-xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold text-luxury">{faq.question}</h3>
+                    <h3 className="text-lg lg:text-xl font-semibold text-luxury leading-tight">{faq.question}</h3>
                   </div>
                   <ChevronDown 
-                    className={`w-6 h-6 text-muted-foreground transition-transform ${
+                    className={`w-5 h-5 lg:w-6 lg:h-6 text-muted-foreground transition-transform flex-shrink-0 ${
                       isActive ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
                 
                 {isActive && (
-                  <div className="mt-6 pl-16 animate-fade-in">
-                    <p className="text-foreground leading-relaxed">{faq.answer}</p>
+                  <div className="mt-4 lg:mt-6 pl-12 lg:pl-16 animate-fade-in">
+                    <p className="text-sm lg:text-base text-foreground leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>
@@ -90,9 +90,9 @@ const FAQSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-6">Still have questions?</p>
-          <button className="premium-button-primary">
+        <div className="text-center mt-8 lg:mt-12">
+          <p className="text-muted-foreground mb-4 lg:mb-6 text-sm lg:text-base">Still have questions?</p>
+          <button className="premium-button-primary w-full sm:w-auto">
             Book Your Strategy Call
           </button>
         </div>
