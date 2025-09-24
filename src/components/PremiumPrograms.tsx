@@ -3,56 +3,58 @@ import { Check, Crown, Zap, Shield, Calendar } from "lucide-react";
 const PremiumPrograms = () => {
   const programs = [
     {
-      name: "Executive",
-      price: "$4,997",
-      period: "3-Month Program",
-      description: "Perfect for senior professionals ready to elevate their executive presence",
+      name: "Starter Package",
+      price: "$90",
+      originalPrice: "$590",
+      period: "per session",
+      description: "Perfect for getting started",
       features: [
-        "12 One-on-One Sessions (60 min each)",
-        "Custom Communication Assessment",
-        "Personalized Accent Refinement Plan", 
-        "Professional Recording Analysis",
-        "Email & Text Support",
-        "Progress Tracking Dashboard",
-        "30-Day Money-Back Guarantee"
+        "1-hour individual session",
+        "Initial assessment",
+        "Personalized feedback",
+        "Practice materials",
+        "Email support"
       ],
       popular: false,
-      icon: Crown
+      icon: Crown,
+      buttonText: "Book Single Session"
     },
     {
-      name: "VIP Platinum",
-      price: "$9,997", 
-      period: "6-Month Intensive",
-      description: "Ultimate transformation for C-suite executives and high-stakes professionals",
+      name: "Professional Package",
+      price: "$550",
+      originalPrice: "$1050", 
+      period: "6 sessions ($92/session)",
+      description: "Comprehensive training program",
       features: [
-        "24 One-on-One Sessions (90 min each)",
-        "Complete Communication Overhaul",
-        "Media Training & Interview Prep",
-        "Presentation Coaching Included",
-        "24/7 WhatsApp Access to Andy",
-        "Quarterly Progress Reviews",
-        "Lifetime Alumni Support",
-        "100% Transformation Guarantee"
+        "6 one-hour sessions",
+        "Comprehensive assessment",
+        "Custom learning plan",
+        "Recording analysis",
+        "Progress tracking",
+        "24/7 chat support"
       ],
       popular: true,
-      icon: Zap
+      icon: Zap,
+      buttonText: "Start Program"
     },
     {
-      name: "Corporate",
-      price: "Custom",
-      period: "Team Programs",
-      description: "Comprehensive solutions for organizations investing in leadership communication",
+      name: "Executive Package",
+      price: "$2200",
+      originalPrice: "$2700",
+      period: "12 sessions ($183/session)",
+      description: "Complete transformation program",
       features: [
-        "Multi-Executive Group Sessions",
-        "Custom Organizational Assessment", 
-        "Leadership Communication Workshop",
-        "Team Presentation Training",
-        "Ongoing Support Package",
-        "ROI Measurement & Reporting",
-        "Flexible Scheduling Options"
+        "12 one-hour sessions",
+        "Detailed speech analysis",
+        "Business presentation training",
+        "Mock interview sessions",
+        "Monthly progress reviews",
+        "Priority scheduling",
+        "Lifetime resource access"
       ],
       popular: false,
-      icon: Shield
+      icon: Shield,
+      buttonText: "Transform Now"
     }
   ];
 
@@ -106,7 +108,14 @@ const PremiumPrograms = () => {
                 {/* Header */}
                 <div className="text-center mb-6 lg:mb-8">
                   <h3 className="text-xl lg:text-2xl font-bold text-luxury mb-2">{program.name}</h3>
-                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">{program.price}</div>
+                  <div className="mb-2">
+                    {program.originalPrice && (
+                      <div className="text-lg lg:text-xl text-muted-foreground line-through mb-1">
+                        {program.originalPrice}
+                      </div>
+                    )}
+                    <div className="text-3xl lg:text-4xl font-bold text-primary">{program.price}</div>
+                  </div>
                   <div className="text-sm lg:text-base text-muted-foreground mb-3 lg:mb-4">{program.period}</div>
                   <p className="text-sm lg:text-base text-foreground leading-relaxed">{program.description}</p>
                 </div>
@@ -131,7 +140,7 @@ const PremiumPrograms = () => {
                       : 'premium-button-primary'
                   }`}
                 >
-                  {program.name === 'Corporate' ? 'Get Custom Quote' : 'Apply Now'}
+                  {program.buttonText}
                 </button>
               </div>
             );
